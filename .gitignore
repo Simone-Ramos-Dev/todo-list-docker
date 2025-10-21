@@ -1,0 +1,13 @@
+# Ignorar ambientes virtuais Python
+venv/
+.venv/
+__pycache__/
+
+# Ignorar artefatos do Python
+*.pyc
+
+# Ignorar dependências do Node (se fosse usado no front)
+node_modules/
+
+# Ignorar pastas de cache do Docker e ambientes locais
+.dockerignore 

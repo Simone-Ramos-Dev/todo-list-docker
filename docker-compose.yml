@@ -1,0 +1,31 @@
+
+
+services:
+  # Serviço 1: Backend (API FastAPI)
+  api:
+    build: 
+      context: ./backend # Busca o Dockerfile no diretório 'backend'
+      dockerfile: Dockerfile
+    ports:
+      - "8000:80"       # Host:Contêiner (Acessível via http://localhost:8000)
+    volumes:
+      - ./backend/app:/app/app # Sincroniza código para desenvolvimento
+    depends_on:
+      - redis           # Garante que o Redis tente subir antes da API
+
+  # Serviço 2: Frontend (Nginx)
+  frontend:
+    build: 
+      context: ./frontend # Busca o Dockerfile no diretório 'frontend'
+      dockerfile: Dockerfile
+    ports:
+      - "3000:80"       # Host:Contêiner (Acessível via http://localhost:3000)
+    volumes:
+      - ./frontend:/usr/share/nginx/html # Sincroniza arquivos HTML/JS/CSS para desenvolvimento
+    # Não precisa de depends_on, pois o JS lida com a API indisponível
+
+  # Serviço 3: Banco de Dados (Redis)
+  redis:
+    image: redis:6.2-alpine # Imagem oficial (super leve)
+    # Não precisamos expor a porta (ports), pois apenas a API precisa acessar o Redis internamente.
+    # No entanto, se quiser expor para debug (ex: 6379:6379) fica a seu critério.
