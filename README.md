@@ -45,11 +45,6 @@ Para subir o ambiente completo, você só precisa ter o **Docker** e o **Docker 
 
 ## 🤝 Colaboração
 
-Este projeto foi desenvolvido em colaboração por:
-
-* **[Simone/ https://github.com/Simone-Ramos-Dev]:** Foco no Backend (FastAPI, Redis) e Liderança na Infraestrutura Docker Compose.
-* **[Janine/ https://github.com/Janine-Nine]:** Foco no Frontend (HTML/JS/Nginx) e Integração da UI com a API.
-
 Sinta-se à vontade para abrir Issues ou Pull Requests para melhorias!
 
 ---
